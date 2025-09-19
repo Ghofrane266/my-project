@@ -2,7 +2,7 @@ import React from "react";
 import p4 from "../images/p4.jpg";
 function Header() {
   return (
-    <div className="flex justify-around mt-10 flex-wrap">
+    <div className="flex justify-around mt-10 flex-wrap ">
       <div className="mt-10">
         <h1
           className="text-5xl font-bold leading-tight   "
@@ -11,7 +11,7 @@ function Header() {
           <div>What</div>
           Would You Like
           <div>
-            To <span className="text-[#4aa125]"> Order</span> Today?
+            To <span className="text-[#628e28]"> Order</span> Today?
           </div>
         </h1>
         <p class="mt-4 text-gray-600">
@@ -19,7 +19,7 @@ function Header() {
           <div>with fast and free delivery</div>
         </p>
         <div className="flex space-x-4">
-          <button className="bg-[#4aa125] text-white px-4 py-2 rounded-3xl mt-4">
+          <button className="bg-[#f1b243] text-white px-4 py-2 rounded-3xl mt-4">
             Order Now
           </button>
           <button className=" font-semibold border-black border-2 px-4 py-1 rounded-3xl mt-4">
