@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import Cards from "../components/Cards";
+import About from "../components/About";
 import Footer from "../components/Footer";
 import Testimon from "../components/Testimon";
 function LandingPage() {
@@ -12,7 +12,7 @@ function LandingPage() {
         <Header />
       </div>
 
-      <Cards />
+      <About />
       <Testimon />
       <Footer />
     </>

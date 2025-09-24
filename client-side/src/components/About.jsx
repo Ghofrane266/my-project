@@ -1,6 +1,6 @@
 import React from "react";
 import p18 from "../images/p18.webp";
-function Cards() {
+function About() {
   return (
      <div className="flex justify-center mt-12 items-center flex-wrap">
         <div className="mt-9 w-[450px]  " style={{}}>
@@ -30,4 +30,4 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default About;
