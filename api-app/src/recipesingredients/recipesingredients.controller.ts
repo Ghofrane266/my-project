@@ -2,14 +2,17 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { RecipesingredientsService } from './recipesingredients.service';
 import { CreateRecipesingredientDto } from './dto/create-recipesingredient.dto';
 import { UpdateRecipesingredientDto } from './dto/update-recipesingredient.dto';
+import { ApiSecurity, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('RECIPES_INGREDIENTS')
+@ApiSecurity('apiKey')
 @Controller('recipesingredients')
 export class RecipesingredientsController {
   constructor(private readonly recipesingredientsService: RecipesingredientsService) {}
 
   @Post()
-  create(@Body() createRecipesingredientDto: CreateRecipesingredientDto) {
-    return this.recipesingredientsService.create(createRecipesingredientDto);
+  create(@Body() dto: CreateRecipesingredientDto) {
+    return this.recipesingredientsService.create(dto);
   }
 
   @Get()
