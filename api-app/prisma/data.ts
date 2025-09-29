@@ -4,24 +4,30 @@ export const productsData = [
     description: 'Une soupe légère et saine',
     price: 8.5,
     categoryId: 1,
+    image:"https://res.cloudinary.com/dpz0ymtax/image/upload/v1759180319/prod1_pgoihg.webp" ,
+
   },
   {
     name: 'Couscous royal',
     description: 'Plat principal traditionnel',
     price: 20,
     categoryId: 3,
+    image: 'https://res.cloudinary.com/dpz0ymtax/image/upload/v1759180533/prod2_x2anvo.webp',
+
   },
   {
     name: 'Tiramisu',
     description: 'Dessert italien',
     price: 12,
     categoryId: 2,
+    image:'https://res.cloudinary.com/dpz0ymtax/image/upload/v1759180865/prod3_lw9pfi.webp'
   },
   {
     name: 'Jus d’orange',
     description: 'Boisson fraîche',
     price: 5,
     categoryId: 4,
+    image:'https://res.cloudinary.com/dpz0ymtax/image/upload/v1759180958/prod4_nol5vb.avif'
   },
 ];
 
@@ -44,14 +50,14 @@ export const recipesData = [
   {
     name: 'Soupe de légumes',
     description: 'Recette saine et délicieuse',
-    image: 'soupe.jpg',
+    image:"https://res.cloudinary.com/dpz0ymtax/image/upload/v1759180319/prod1_pgoihg.webp" ,
     userId: 1, // doit exister
     createdBy: 1,
   },
   {
     name: 'Couscous royal',
     description: 'Un classique tunisien',
-    image: 'couscous.jpg',
+    image: 'https://res.cloudinary.com/dpz0ymtax/image/upload/v1759180533/prod2_x2anvo.webp',
     userId: 1,
     createdBy: 1,
   },
