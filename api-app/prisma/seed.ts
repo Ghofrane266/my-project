@@ -6,17 +6,26 @@ import {
   recipeIngredientsData,
   recipesData,
 } from './data';
+import bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
 async function main() {
   console.log('🌱 Seeding database...');
 
+  const salt = await bcrypt.genSalt();
+  const user1 = await prisma.user.create({
+    data: {
+      name: 'ghofrane',
+      image:
+        'https://res.cloudinary.com/dpz0ymtax/image/upload/v1759183665/prod5_lbcsgl.png',
+      email: 'ghofrane@gmail.com',
+      password: await bcrypt.hash('cherni', salt),
+      role: 'ADMIN',
+    },
+  });
 
-  await prisma.user.create({
-  data: { name: "Admin", email: "admin@test.com", password: "hashedpwd", role: "ADMIN" }
-});
-const categories = await prisma.category.createMany({
+  const categories = await prisma.category.createMany({
     data: categoriesData,
   });
 
@@ -24,12 +33,10 @@ const categories = await prisma.category.createMany({
     data: productsData,
   });
 
- 
   const recipes = await prisma.recipe.createMany({
     data: recipesData,
   });
 
- 
   const ingredients = await prisma.ingredient.createMany({
     data: ingredientsData,
   });

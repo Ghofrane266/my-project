@@ -10,9 +10,10 @@ import { IngredientsModule } from './ingredients/ingredients.module';
 import { OrdersModule } from './orders/orders.module';
 import { OrdersitemsModule } from './ordersitems/ordersitems.module';
 import { RecipesingredientsModule } from './recipesingredients/recipesingredients.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [PrismaModule, UsersModule, ProductsModule, UsersModule, RecipesModule, CategoriesModule, IngredientsModule, OrdersModule, OrdersitemsModule, RecipesingredientsModule],
+  imports: [PrismaModule, UsersModule, ProductsModule, UsersModule, RecipesModule, CategoriesModule, IngredientsModule, OrdersModule, OrdersitemsModule, RecipesingredientsModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
