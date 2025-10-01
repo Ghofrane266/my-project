@@ -34,9 +34,10 @@ export class AuthController {
   @ApiSecurity('apiKey')
   @UseGuards(JwtAuthGuard)
   @Get('me')
-  async findMe(@Request() req) {
+   async findMe(@Request() req: any) {
+
     return await this.authService.getMyInfo(
-      req.get('Authauthorization').replace('Bearer ', ''),
+      req.get('Authorization').replace('Bearer ', ''),
     );
   }
 }

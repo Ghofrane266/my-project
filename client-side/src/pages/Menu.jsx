@@ -3,10 +3,13 @@ import Navbar from "../components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/products";
 import { useNavigate } from "react-router-dom";
+import { getMe } from "../store/auth";
 //  import { Card, Typography, Button } from "@material-tailwind/react";
 function Menu() {
   const navigate = useNavigate();
   const products = useSelector((state) => state.products.products.items);
+  const user = useSelector((store) => store.auth.me);
+
 
   const dispatch = useDispatch();
 
@@ -14,9 +17,16 @@ function Menu() {
     dispatch(fetchProducts());
   }, []);
   console.log(products, "state");
+  // const dispatch = useDispatch();
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) dispatch(getMe());
+  }, [dispatch]);
   return (
     <>
       <Navbar />
+    
       {/* flex justify-around  space-y-6  flex-wrap */}
       {/* grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mx-auto */}
       <div className="flex justify-evenly  gap-6  flex-wrap  ">

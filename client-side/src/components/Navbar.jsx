@@ -1,9 +1,30 @@
 import logo1 from "../images/logo1.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { getMe } from "../store/auth";
+import { useEffect } from "react";
 function Navbar() {
+  const user = useSelector((store) => store.auth.me);
+   const dispatch = useDispatch();
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    if (token) dispatch(getMe());
+  }, [dispatch]);
+
+
 const navigate = useNavigate()
+
+const goToMenu=()=>{
+  if (user) {
+    navigate("/menu")
+  }
+  else{
+    navigate("/login")
+  }
+}
 
   return (
     <div className="flex  space-x-8 justify-between" >
@@ -23,7 +44,7 @@ const navigate = useNavigate()
       >
         <Link to="/home" className="active:text-[#4aa125] hover:text-[#4aa125]" >Home</Link>
         <Link to="/about" className="active:text-[#4aa125] hover:text-[#4aa125]">About</Link>
-        <Link to="/menu" className="active:text-[#4aa125] hover:text-[#4aa125]">Menu</Link>
+        <a onClick={goToMenu}   className="active:text-[#4aa125] hover:text-[#4aa125]">Menu</a>
         <Link to="/profil" className="active:text-[#4aa125] hover:text-[#4aa125]">Profil</Link>
       </div>
 

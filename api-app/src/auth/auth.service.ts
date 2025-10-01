@@ -47,6 +47,7 @@ export class AuthService {
     });
     if (newUser) {
       throw new HttpException('email already exists', HttpStatus.BAD_REQUEST);
+      // alert('email already exists')
     }
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
