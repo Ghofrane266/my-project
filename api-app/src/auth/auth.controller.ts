@@ -15,6 +15,7 @@ import { UpdateAuthDto } from './dto/update-auth.dto';
 import { ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { JwtAuthGuard } from './jwt-auth.guard';
+import { CurrentUser } from './decorator/current-user';
 
 @ApiTags('AUTH')
 @Controller('auth')
@@ -30,6 +31,13 @@ export class AuthController {
   async signup(@Body() dto: CreateUserDto) {
     return this.authService.signup(dto);
   }
+
+ @UseGuards(JwtAuthGuard)
+  @Patch('update-me')
+  updateMe(@Body() dto: UpdateAuthDto,@CurrentUser() user: any) {
+    return this.authService.updateMe(dto,user.id);
+  }
+
 
   @ApiSecurity('apiKey')
   @UseGuards(JwtAuthGuard)

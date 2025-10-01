@@ -16,7 +16,7 @@ export const signup = createAsyncThunk("signup", async (args, { dispatch }) => {
     args
   );
   const token = response.data.token;
-  localStorage.setItem("token", token);
+  // localStorage.setItem("token", token);
   dispatch(getMe());
   return response.data;
 });
@@ -30,6 +30,22 @@ export const getMe = createAsyncThunk("getMe", async () => {
   });
   return response.data;
 });
+
+export const updateProfile = createAsyncThunk("updateMe",async (body,{dispatch})=>{
+    const token = localStorage.getItem("token");
+    const response = await axios.patch('http://localhost:5000/api/v1/auth/update-me',body,{
+        headers:{
+            Authorization:'Bearer '+token
+    }})
+    localStorage.setItem('token',response.data)
+    dispatch(getMe())
+    
+
+})
+
+
+
+
 
 export const authSlice = createSlice({
   name: "auth",

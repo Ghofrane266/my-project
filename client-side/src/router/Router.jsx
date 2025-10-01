@@ -10,6 +10,8 @@ import SignUp from "../pages/SignUp";
 import OneProduct from "../pages/OneProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../store/auth";
+import Cart from "../pages/Cart";
+import EditProfile from "../pages/EditProfile";
 function Router() {
   const user = useSelector((store) => store.auth.me);
   
@@ -32,6 +34,8 @@ function Router() {
         <Route path="/profil" element={<Profil />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/edit" element={<EditProfile />} />
         <Route path='/menu' element={user ? <Menu /> : <Navigate to="/login" />} />
         {/* {user && <Route path="/menu" element={<Menu />} />} */}
       </Routes>

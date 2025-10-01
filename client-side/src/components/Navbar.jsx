@@ -27,6 +27,8 @@ const goToMenu=()=>{
 }
 
   return (
+    <>
+
     <div className="flex  space-x-8 justify-between" >
       <div>
         <img
@@ -50,12 +52,13 @@ const goToMenu=()=>{
 
       <div className="flex space-x-6 mt-6 px-6">
         <FiSearch size={20}  className="active:text-[#4aa125] hover:text-[#4aa125]"/>
-        <AiOutlineShoppingCart size={20}  className="active:text-[#4aa125] hover:text-[#4aa125]"/>
+        <AiOutlineShoppingCart size={20}  className="active:text-[#4aa125] hover:text-[#4aa125]" onClick={()=>navigate("/cart")}/>
         <button onClick={()=>navigate("/login")}  className="flex justify-center bg-[#4aa125] text-white w-[80px] h-[30px] rounded-2xl -mt-1 hover:bg-white hover:text-[#4aa125] active:bg-white active:text-[#4aa125]">
           Login
         </button>
       </div>
     </div>
+    </>
   );
 }
 
